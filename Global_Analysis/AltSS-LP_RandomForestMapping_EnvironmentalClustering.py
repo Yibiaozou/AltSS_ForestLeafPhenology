@@ -4,6 +4,7 @@ Created on Mon Dec  5 18:31:53 2022
 
 @author: Yibiao.Z
 """
+## This code is adapted from the pipeline of Van den Hoogen et al., BioRxiv (2021). A geospatial mapping pipeline for ecologists, doi: 10.1101/2021.07.07.451145
 # Import the modules of interest
 import pandas as pd
 import numpy as np
