@@ -91,7 +91,7 @@ set.seed(2022)
 fishNet <- raster() # create an empty raster template 
 res(fishNet) <- 1 # set the resolution of the template as 1 degree. 
 values(fishNet) <- 1:ncell(fishNet) # allocate values to the 'fishing net' raster
-# extract spatial cluster for each plot, which later used for 
+# extract spatial cluster for each plot
 GFBI_Df2_Aggregated_Full_2_filtered$Cluster <- raster::extract(fishNet, GFBI_Df2_Aggregated_Full_2_filtered[,c("longitude", "latitude")])
 
 
