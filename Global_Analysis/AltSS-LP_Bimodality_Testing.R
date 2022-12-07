@@ -87,7 +87,7 @@ saveRDS(GFBI_Df2_Aggregated_Full_2_filtered, file="D:/Zeus/ETH_zurich_MSc/ETHz_S
 set.seed(2022)
 
 
-### Get spatial cluster of each plot. we partitioned the global forest zones using a ‘fishing net’ with 10 arc-min (~20km) grid size.
+### Get spatial cluster of each plot. we partitioned the global forest zones using a ‘fishing net’ with 1-degree grid size.
 fishNet <- raster() # create an empty raster template 
 res(fishNet) <- 1 # set the resolution of the template as 1 degree. 
 values(fishNet) <- 1:ncell(fishNet) # allocate values to the 'fishing net' raster
