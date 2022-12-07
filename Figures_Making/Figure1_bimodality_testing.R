@@ -28,7 +28,7 @@ library(gamlss.add)
 ####----FIA_US: GAMLSS zero adjusted Poisson (ZAP) distribution----####
 AzapMx <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/FIA_zapMx_EV_FSD.rds")
 BzapMx <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/FIA_zapMx_DE_FSD.rds")
-
+iterations=1000
 GebnMx_Bi <- numeric(iterations)
 KebnMx_Bi <- numeric(iterations)
 binwidthx = 0.05
