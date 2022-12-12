@@ -5,10 +5,10 @@ library(data.table)
 library(plotrix)
 
 ## load dataset which contain information of variable importance from fitted random forest models
-varImp_GMP_Df <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Results/Analysis_Results/VarImp_R/varImp_GMP_GFBI_Df_FSD.rds")
-varImp_BiGrid_Df <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Results/Analysis_Results/VarImp_R/varImp_BiGrid_GFBI_Df_FSD.rds")
-varImp_EvGrid_Df <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Results/Analysis_Results/VarImp_R/varImp_EvGrid_GFBI_Df_FSD.rds")
-varImp_DeGrid_Df <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Results/Analysis_Results/VarImp_R/varImp_DeGrid_GFBI_Df_FSD.rds")
+varImp_GMP_Df <- readRDS("**/Global_Analysis/Model_Output/varImp_GMP_GFBI_Df_FSD.rds")
+varImp_BiGrid_Df <- readRDS("**/Global_Analysis/Model_Output/varImp_BiGrid_GFBI_Df_FSD.rds")
+varImp_EvGrid_Df <- readRDS("**/Global_Analysis/Model_Output/varImp_EvGrid_GFBI_Df_FSD.rds")
+varImp_DeGrid_Df <- readRDS("**/Global_Analysis/Model_Output/varImp_DeGrid_GFBI_Df_FSD.rds")
 
 ## expand the short names to the full variable names for all four dataset
 varImp_GMP_Df$VarName[varImp_GMP_Df$VarName=="MAT"] <- "Mean annual temperature"
