@@ -26,8 +26,11 @@ library(gamlss)
 library(gamlss.add)
 
 ####----FIA_US: GAMLSS zero adjusted Poisson (ZAP) distribution----####
-AzapMx <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/FIA_zapMx_EV_FSD.rds")
-BzapMx <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/FIA_zapMx_DE_FSD.rds")
+AX2 <- readRDS("**/Global_Analysis/Data/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
+
+
+AzapMx <- readRDS("**/Global_Analysis/Data/FIA_zapMx_EV_FSD.rds")
+BzapMx <- readRDS("**/Global_Analysis/Data/FIA_zapMx_DE_FSD.rds")
 iterations=1000
 GebnMx_Bi <- numeric(iterations)
 KebnMx_Bi <- numeric(iterations)
@@ -99,10 +102,8 @@ ggplot()+geom_histogram(data=cordistribution,aes(x=cor),bins=200, fill="black")+
 
 
 ####----GFBI: GAMLSS zero adjusted Poisson (ZAP) distribution----####
-GFBI_Df2_Aggregated_Full_2_filtered <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
-
-AzapMx <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_zapMx_EV_FSD.rds")
-BzapMx <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_zapMx_DE_FSD.rds")
+AzapMx <- readRDS("**/Global_Analysis/Data/GFBI_zapMx_EV_FSD.rds")
+BzapMx <- readRDS("**/Global_Analysis/Data/GFBI_zapMx_DE_FSD.rds")
 
 GebnMx_Bi <- numeric(iterations)
 KebnMx_Bi <- numeric(iterations)
