@@ -9,11 +9,11 @@ library(diptest)
 
 ####-----Boostrapping determinant analysis on the seven selected variables---####
 # load the plot-level GFBi dataset
-GFBI_Df2_Aggregated_Full_2 <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_Df2_aggregated_New.rds")
+GFBI_Df2_Aggregated_Full_2 <- readRDS("**/Global_Analysis/Data/GFBI_Df2_aggregated_New.rds")
 # load the cluster-level GFBi dataset
-GFBI_Df3_Scaled_10min_Full <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_Df3_Scaled_10min_FullStandardized.rds")
+GFBI_Df3_Scaled_10min_Full <- readRDS("**/Global_Analysis/Data/GFBI_Df3_Scaled_10min_FullStandardized.rds")
 
-GMP_Df_Full =read.csv("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Code/GEE_RF/Input_FSD/GMP_Df_FSD.csv")
+GMP_Df_Full =read.csv("**/Global_Analysis/Data/GEE_RF/Input_FSD/GMP_Df_FSD.csv")
 
 # retain cluster with sample size >= 80, to make sure BI can accurately depict the distribution
 GFBI_Df3_Scaled_10min <- GFBI_Df3_Scaled_10min_Full[GFBI_Df3_Scaled_10min_Full$SampleSize>=80, ]%>%drop_na()
