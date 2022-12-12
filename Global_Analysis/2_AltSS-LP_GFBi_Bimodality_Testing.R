@@ -33,10 +33,10 @@ library(gamlss.add)
 memory.limit(5e5)
 
 ## load plot-level aggregated forest data
-GFBI_Df2_Aggregated_Full_2 <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_Df2_aggregated_New.rds")
+GFBI_Df2_Aggregated_Full_2 <- readRDS("**/Global_Analysis/Data/GFBI_Df2_aggregated_New.rds")
 
 ## load cluster-level aggregated forest data
-GFBI_Df3_Scaled_10min <-readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_Df3_Scaled_10min_FullStandardized.rds")
+GFBI_Df3_Scaled_10min <-readRDS("**/Global_Analysis/Data/GFBI_Df3_Scaled_10min_FullStandardized.rds")
 ## get names of spatial environmental covariates
 covariateList <- colnames(GFBI_Df3_scaled_10min_RF)
 covariateList <- covariateList[-which(covariateList%in%c("BI", "latitude", "longitude", "Resolve_Biome",
@@ -81,7 +81,7 @@ toc()
 GFBI_Df2_Aggregated_Full_2_filtered <- cbind(GFBI_Df2_Aggregated_Full_2_filtered, as.data.frame(env.pca$x[,1:10]))
 
 
-saveRDS(GFBI_Df2_Aggregated_Full_2_filtered, file="D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
+saveRDS(GFBI_Df2_Aggregated_Full_2_filtered, file="**/Global_Analysis/Data/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
 
 # set seed for reproducibility 
 set.seed(2022)
@@ -107,7 +107,7 @@ b1zap <- gamlss(EV_Density~ba(~s(PC1,k=kv)+s(PC2,k=kv)+s(PC3,k=kv)+s(PC4,k=kv)+s
                 sigma.formula=~ba(~s(PC1,k=kv)+s(PC2,k=kv)+s(PC3,k=kv)+s(PC4,k=kv)+s(PC5,k=kv)+s(PC6,k=kv)+s(PC7,k=kv)+s(PC8,k=kv)+s(PC9,k=kv)+s(PC10,k=kv),discrete=T,method="fREML"),
                 family=ZAP(),data=GFBI_Df2_Aggregated_Full_2_filtered, control=gamlss.control(c.crit = 0.05,n.cyc = 20))
 toc()
-saveRDS(b1zap, file="D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_GAM_ZAP_EV_FSD.rds")
+saveRDS(b1zap, file="**/Global_Analysis/Data/GFBI_GAM_ZAP_EV_FSD.rds")
 
 
 tic()
@@ -116,11 +116,11 @@ b2zap <- gamlss(DE_Density~ba(~s(PC1,k=kv)+s(PC2,k=kv)+s(PC3,k=kv)+s(PC4,k=kv)+s
                 sigma.formula=~ba(~s(PC1,k=kv)+s(PC2,k=kv)+s(PC3,k=kv)+s(PC4,k=kv)+s(PC5,k=kv)+s(PC6,k=kv)+s(PC7,k=kv)+s(PC8,k=kv)+s(PC9,k=kv)+s(PC10,k=kv),discrete=T,method="fREML"),
                 family=ZAP(),data=GFBI_Df2_Aggregated_Full_2_filtered, control=gamlss.control(c.crit = 0.05,n.cyc = 20))
 toc()
-saveRDS(b2zap, file="D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_GAM_ZAP_DE_FSD.rds")
+saveRDS(b2zap, file="**/Global_Analysis/Data/GFBI_GAM_ZAP_DE_FSD.rds")
 
 
-b1zap <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_GAM_ZAP_EV_FSD.rds")
-b2zap <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_GAM_ZAP_DE_FSD.rds")
+b1zap <- readRDS("**/Global_Analysis/Data/GFBI_GAM_ZAP_EV_FSD.rds")
+b2zap <- readRDS("**/Global_Analysis/Data/GFBI_GAM_ZAP_DE_FSD.rds")
 
 iterations=1000
 AzapMx <- matrix(NA, nrow=iterations, ncol=length(fitted(b1zap)))
@@ -135,11 +135,11 @@ for(i in 1:iterations){
   toc()
 }
 
-saveRDS(AzapMx, file="D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_zapMx_EV_FSD.rds")
-saveRDS(BzapMx, file="D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_zapMx_DE_FSD.rds")
+saveRDS(AzapMx, file="**/Global_Analysis/Data/GFBI_zapMx_EV_FSD.rds")
+saveRDS(BzapMx, file="**/Global_Analysis/Data/GFBI_zapMx_DE_FSD.rds")
 
 ####----GAMLSS zero-adjusted negative binomial (ZANBI) distribution
-GFBI_Df2_Aggregated_Full_2_filtered <- readRDS("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
+GFBI_Df2_Aggregated_Full_2_filtered <- readRDS("**/Global_Analysis/Data/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
 
 # kv <- 5# To account for the possibility of nonlinear effects, all predictors were fit as independent spline terms with at most 5 ‘knots’
 
@@ -161,7 +161,7 @@ b2zanusi <- gamlss(DE_Density~ba(~s(PC1,k=kv)+s(PC2,k=kv)+s(PC3,k=kv)+s(PC4,k=kv
                    sigma.formula=~ba(~s(PC1,k=kv)+s(PC2,k=kv)+s(PC3,k=kv)+s(PC4,k=kv)+s(PC5,k=kv)+s(PC6,k=kv)+s(PC7,k=kv)+s(PC8,k=kv)+s(PC9,k=kv)+s(PC10,k=kv)+s(Cluster,bs="re"),discrete=T,method="fREML"),
                    family=ZANBI(),data=GFBI_Df2_Aggregated_Full_2_filtered, control=gamlss.control(c.crit = 0.05,n.cyc = 20))
 toc()
-saveRDS(b2zanusi, file="D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_GAM_ZANBI_DE_FSD.rds")
+saveRDS(b2zanusi, file="**/Global_Analysis/Data/GFBI_GAM_ZANBI_DE_FSD.rds")
 
 iterations=1000
 AbnMx <- matrix(NA, nrow=iterations, ncol=length(fitted(b1zanusi)))
@@ -176,5 +176,5 @@ for(i in 1:iterations){
   toc()
 }
 
-saveRDS(AbnMx, file="D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_bnMx_EV_FSD.rds")
-saveRDS(BbnMx, file="D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/GFBI_bnMx_DE_FSD.rds")
+saveRDS(AbnMx, file="**/Global_Analysis/Data/GFBI_bnMx_EV_FSD.rds")
+saveRDS(BbnMx, file="**/Global_Analysis/Data/GFBI_bnMx_DE_FSD.rds")
