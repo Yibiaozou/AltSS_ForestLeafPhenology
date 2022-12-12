@@ -1,10 +1,10 @@
 rm(list=ls())
 library(tidyverse)
 
-load("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/AltSS_LP_RF_Caret_GMP_3GroupVar_3PC.RData")
-load("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/AltSS_LP_RF_Caret_BiGrid_3GroupVar_3PC.RData")
-load("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/AltSS_LP_RF_Caret_EvGrid_3GroupVar_3PC.RData")
-load("D:/Zeus/ETH_zurich_MSc/ETHz_S4/MatserThesis_Crowther_Lab/Data/GFBI/AltSS_LP_RF_Caret_DeGrid_3GroupVar_3PC.RData")
+load("**/Global_Analysis/Model_Output/AltSS_LP_RF_Caret_GMP_3GroupVar_3PC.RData")
+load("**/Global_Analysis/Model_Output/AltSS_LP_RF_Caret_BiGrid_3GroupVar_3PC.RData")
+load("**/Global_Analysis/Model_Output/AltSS_LP_RF_Caret_EvGrid_3GroupVar_3PC.RData")
+load("**/Global_Analysis/Model_Output/AltSS_LP_RF_Caret_DeGrid_3GroupVar_3PC.RData")
 
 # extract relative permutation importance
 VarTmpDf_GMP <- as.data.frame(varImp(AltSS_LP_RF_Caret_GMP)$importance)
