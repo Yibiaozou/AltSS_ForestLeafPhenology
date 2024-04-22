@@ -192,10 +192,11 @@ values(fishNet) <- 1:ncell(fishNet) # allocate values to the 'fishing net' raste
 # extract spatial cluster for each plot, which later used for 
 GFBI_Df2_Aggregated_Full_2$Cluster_10min <- raster::extract(fishNet, GFBI_Df2_Aggregated_Full_2[,c("longitude", "latitude")])
 ### save the plot-level GFBi data
-saveRDS(GFBI_Df2_Aggregated_Full_2, file="**/Global_Analysis/Data/GFBI_Df2_aggregated_New.rds")
-
+# saveRDS(GFBI_Df2_Aggregated_Full_2, file="**/Global_Analysis/Data/GFBI_Df2_aggregated_New.rds")
+write.csv(GFBI_Df2_Aggregated_Full_2, file="**/Source_Data/SourceData_Fig1D-F.csv")
+                        
 ## get the names of spatial covariates
-GMP_Df_Full =read.csv("**/Global_Analysis/Data/GEE_RF/Input_Full/GMP_Df_Full.csv")
+GMP_Df_Full =read.csv("**/Source_Data/SourceData_Fig4.csv")
 CoVaList <- c(colnames(GMP_Df_Full)[4:81])
 
 #  only keep plots for which information on leaf phenology strategies was available for > 90% of trees (weighted by basal area) 
@@ -253,7 +254,7 @@ saveRDS(GFBI_Df3_Scaled_10min, file="**/Global_Analysis/Data/GFBI_Df3_Scaled_10m
 GFBI_Df3_scaled_10min_RF <- GFBI_Df3_Scaled_10min%>%dplyr::select(-Cluster_10min, -dip_Stat, 
                                                                   -dip_P, -skewness, -SampleSize, -dip_Stat_AD, -density, -skewness, -kurtosis, -relEV_mu)
 GFBI_Df3_scaled_10min_RF <- GFBI_Df3_scaled_10min_RF %>%drop_na()
-write.csv(GFBI_Df3_scaled_10min_RF, file="**/Global_Analysis/Data/GEE_RF/Input_FSD/GMP_Df_FSD.csv", row.names = F)
+write.csv(GFBI_Df3_scaled_10min_RF, file="**/Source_Data/SourceData_Fig4.csv", row.names = F)
 
 
 ##### Hyperparamter tuning
