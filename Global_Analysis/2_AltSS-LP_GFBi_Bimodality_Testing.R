@@ -26,10 +26,10 @@ library(gamlss.add)
 memory.limit(5e5)
 
 ## load plot-level aggregated forest data
-GFBI_Df2_Aggregated_Full_2 <- readRDS("**/Global_Analysis/Data/GFBI_Df2_aggregated_New.rds")
+GFBI_Df2_Aggregated_Full_2 <- readRDS("**/Source_Data/SourceData_Fig1D-F.csv")
 
 ## load cluster-level aggregated forest data
-GFBI_Df3_Scaled_10min <-readRDS("**/Global_Analysis/Data/GFBI_Df3_Scaled_10min_FullStandardized.rds")
+GFBI_Df3_Scaled_10min <-readRDS("**/Source_Data/SourceData_Fig4.csv")
 ## get names of spatial environmental covariates
 covariateList <- colnames(GFBI_Df3_scaled_10min_RF)
 covariateList <- covariateList[-which(covariateList%in%c("BI", "latitude", "longitude", "Resolve_Biome",
@@ -132,7 +132,7 @@ saveRDS(AzapMx, file="**/Global_Analysis/Data/GFBI_zapMx_EV_FSD.rds")
 saveRDS(BzapMx, file="**/Global_Analysis/Data/GFBI_zapMx_DE_FSD.rds")
 
 ####----GAMLSS zero-adjusted negative binomial (ZANBI) distribution
-GFBI_Df2_Aggregated_Full_2_filtered <- readRDS("**/Global_Analysis/Data/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
+# GFBI_Df2_Aggregated_Full_2_filtered <- readRDS("**/Global_Analysis/Data/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
 
 # kv <- 5# To account for the possibility of nonlinear effects, all predictors were fit as independent spline terms with at most 5 ‘knots’
 
