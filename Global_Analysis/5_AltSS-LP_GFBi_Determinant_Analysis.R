@@ -9,9 +9,9 @@ library(diptest)
 
 ####-----Boostrapping determinant analysis on the seven selected variables---####
 # load the plot-level GFBi dataset
-GFBI_Df2_Aggregated_Full_2 <- readRDS("**/Global_Analysis/Data/GFBI_Df2_aggregated_New.rds")
+GFBI_Df2_Aggregated_Full_2 <- read.csv("**/Source_Data/SourceData_Fig1D-F.csv")
 # load the cluster-level GFBi dataset
-GFBI_Df3_Scaled_10min_Full <- readRDS("**/Global_Analysis/Data/GFBI_Df3_Scaled_10min_FullStandardized.rds")
+GFBI_Df3_Scaled_10min_Full <- read.csv("**/Source_Data/SourceData_Fig4.csv")
 
 GMP_Df_Full =read.csv("**/Global_Analysis/Data/GEE_RF/Input_FSD/GMP_Df_FSD.csv")
 
@@ -204,9 +204,9 @@ for (i in 1:Nrep){
 
 ####-----Determinant analysis on the three leading principle components of climate, soil and topography---####
 # load the plot-level GFBi dataset
-GFBI_Df2_Aggregated_Full_2 <- readRDS("**/Global_Analysis/Data/GFBI_Df2_aggregated_New.rds")
+GFBI_Df2_Aggregated_Full_2 <- read.csv("**/Source_Data/SourceData_Fig1D-F.csv")
 # load the cluster-level GFBi dataset
-GFBI_Df3_Scaled_10min_Full <- readRDS("**/Global_Analysis/Data/GFBI_Df3_Scaled_10min_FullStandardized.rds")
+GFBI_Df3_Scaled_10min_Full <- read.csv("**/Source_Data/SourceData_Fig4.csv")
 
 GMP_Df_Full =read.csv("**/Global_Analysis/Data/GEE_RF/Input_Full/GMP_Df_Full.csv")
 
