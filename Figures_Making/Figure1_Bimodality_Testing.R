@@ -30,6 +30,8 @@ storage.dir <- '**/Continental_Analysis/FIA_US/'
 setwd(storage.dir)
 source('Project_Functions/paths.r')
 
+AX <- read.csv("**/Source_Data/SourceData_Fig1A-C.csv")
+
 # For FIA we already remove managed plot, therefore here we only remove small plots with less than 10 trees
 AX <- AX[AX$count>=10,]
 AX <- AX %>% mutate(relEV_Density=ev.density/(ev.density+de.density))
