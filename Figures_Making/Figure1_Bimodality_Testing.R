@@ -125,8 +125,8 @@ ggplot()+geom_histogram(data=cordistribution,aes(x=cor),bins=200, fill="black")+
 
 
 ####----GFBI: GAMLSS zero adjusted Poisson (ZAP) distribution----####
-GFBI_Df2_Aggregated_Full_2_filtered <- readRDS("**/Global_Analysis/Data/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
-
+# GFBI_Df2_Aggregated_Full_2_filtered <- readRDS("**/Global_Analysis/Data/GFBI_Df2_Aggregated_Full_2_FSD_Fig1.rds")
+GFBI_Df2_Aggregated_Full_2_filtered <- read.csv("**/Source_Data/SourceData_Fig1D-F.csv")
 
 AzapMx <- readRDS("**/Global_Analysis/Data/GFBI_zapMx_EV_FSD.rds")
 BzapMx <- readRDS("**/Global_Analysis/Data/GFBI_zapMx_DE_FSD.rds")
